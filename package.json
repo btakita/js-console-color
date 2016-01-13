@@ -1,0 +1,34 @@
+{
+  "name": "js-console-color",
+  "version": "0.1.0",
+  "description": "javascript console with colors (sensible defaults,overridable)",
+  "author": "Brian Takita <brian.takita@gmail.com>",
+  "contributors": [],
+  "scripts": {
+    "compile": "./bin/compile.sh",
+    "prepublish": "npm run compile"
+  },
+  "main": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/btakita/js-console-color"
+  },
+  "bugs": {
+    "url": "https://github.com/btakita/js-console-color/issues"
+  },
+  "keywords": [
+    "js-console-color",
+    "javascript",
+    "console",
+    "color"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.4.0",
+    "babel-preset-es2015": "^6.3.13"
+  },
+  "analyze": true,
+  "license": "Apache"
+}
