@@ -20,6 +20,6 @@ error("error", "message");
 import jsConsoleColorEnv from "js-console-color";
 jsConsoleColorEnv({
   info: ["purple", "bold"],
-  warn: ["red"]
+  warn: ["red", "italic"]
 });
 ~~~

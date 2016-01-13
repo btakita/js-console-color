@@ -3,7 +3,7 @@ var env2 = {
   info: ['green'],
   debug: ['white'],
   log: ['grey'],
-  warn: ['dim', 'red'],
+  warn: ['red'],
   error: ['red', 'bold']
 };
 export function env(val) {
