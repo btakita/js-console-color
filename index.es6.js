@@ -1,39 +1,40 @@
-const chalk = require('chalk');
-var env2 = {
-  info: ['green'],
-  debug: ['white'],
-  log: ['grey'],
-  warn: ['red'],
-  error: ['red', 'bold']
-};
-export function env(val) {
-  if (val) {
-    env2 = val;
-  }
-  return env2;
+const chalk = require('chalk')
+    , envValue = {
+        info: ['green'],
+        debug: ['white'],
+        log: ['grey'],
+        warn: ['red'],
+        error: ['red', 'bold']
+      }
+    , chalk2 = {};
+chalk2Refresh();
+export function envAssign(...args) {
+  const ctx = Object.assign({}, ...args);
+  Object.assign(envValue, ctx);
+  chalk2Refresh();
+  return envValue;
 }
-export function debug() {
-  var chalk3 = chalk2('debug');
-  console.info(chalk3.apply(chalk3, arguments));
+export function debug(...args) {
+  (console.debug||console.info)(chalk2.debug(...args));
 }
-export function log() {
-  var chalk3 = chalk2('log');
-  console.info(chalk3.apply(chalk3, arguments));
+export function log(...args) {
+  console.log(chalk2.log(...args));
 }
-export function info() {
-  var chalk3 = chalk2('info');
-  console.info(chalk3.apply(chalk3, arguments));
+export function info(...args) {
+  console.info(chalk2.info(...args));
 }
-export function warn() {
-  var chalk3 = chalk2('warn');
-  console.info(chalk3.apply(chalk3, arguments));
+export function warn(...args) {
+  console.warn(chalk2.warn(...args));
 }
-export function error() {
-  var chalk3 = chalk2('error');
-  console.info(chalk3.apply(chalk3, arguments));
+export function error(...args) {
+  console.error(chalk2.error(...args));
 }
-function chalk2(consoleMethod) {
-  return [chalk].concat(env2[consoleMethod]||[]).reduce(function(chalk3, chalkMethod) {
-    return chalk3[chalkMethod];
+function chalk2Refresh() {
+  Object.keys(envValue).forEach((consoleMethod) => {
+    chalk2[consoleMethod] = [chalk]
+      .concat(envValue[consoleMethod]||[])
+      .reduce(function(chalk3, chalkMethod) {
+        return chalk3[chalkMethod];
+      })
   });
 }
